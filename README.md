@@ -172,4 +172,8 @@ Terminal Uninstall
 1. su
 2. zypper remove bcompare
 
+To check the output
+bcompare file.txt file1.txt
 
+Integrate with GIT
+-------------------
