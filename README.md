@@ -195,12 +195,11 @@ When VNC is first set up, it launches a default server instance on port 5901. Th
 2. Output
 Killing Xtightvnc process ID 17648
 3. Before you modify the xstartup file, back up the original:
-   mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
+   a. mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
 4. Now create a new xstartup file and open it in your text editor:
-   nano ~/.vnc/xstartup
-   --------------------
-    #!/bin/bash
-    xrdb $HOME/.Xresources
-    startxfce4 &
+   a. nano ~/.vnc/xstartup
+    1. #!/bin/bash
+    2. xrdb $HOME/.Xresources
+    3. startxfce4 &
     
 5. 
