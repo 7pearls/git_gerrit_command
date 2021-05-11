@@ -1,4 +1,4 @@
-# git_gerrit_command
+git_gerrit_command
 
 Revert to previous changes:
 git reset --hard HEAD~1
