@@ -144,17 +144,18 @@ sudo gdebi bcompare-4.3.7.25118_amd64.deb
 Terminal Uninstall
 sudo apt-get remove bcompare
 
-REDHAT ENTERPRISE LINUX, FEDORA, CENTOS
-Graphical Install
-Double click on the .rpm package to install using the graphical package manager.
-wget https://www.scootersoftware.com/bcompare-4.3.7.25118.x86_64.rpm
-su
-rpm --import https://www.scootersoftware.com/RPM-GPG-KEY-scootersoftware
-yum install bcompare-4.3.7.25118.x86_64.rpm
+REDHAT ENTERPRISE LINUX, FEDORA, CENTOS:
+
+->Graphical Install
+->Double click on the .rpm package to install using the graphical package manager.
+->wget https://www.scootersoftware.com/bcompare-4.3.7.25118.x86_64.rpm
+->su
+->rpm --import https://www.scootersoftware.com/RPM-GPG-KEY-scootersoftware
+->yum install bcompare-4.3.7.25118.x86_64.rpm
 
 Terminal Uninstall
-su
-yum remove bcompare
+->su
+->yum remove bcompare
 
 OPENSUSE
 su
