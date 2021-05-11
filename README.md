@@ -177,3 +177,18 @@ bcompare file.txt file1.txt
 
 Integrate with GIT
 -------------------
+
+
+Configure VNC server
+----------------------
+Prerequisites
+--------------
+A local computer with a VNC client installed that supports VNC connections over SSH tunnels.
+
+1. On Winows, you can use TightVNC, RealVNC, or UltraVNC.
+2. On macOS, you can use the built-in Screen Sharing program, or can use a cross-platform app like RealVNC.
+3. On Linux, you can choose from many options, including vinagre, krdc, RealVNC, or TightVNC.
+
+When VNC is first set up, it launches a default server instance on port 5901. This port is called a display port, and is referred to by VNC as :1. VNC can launch multiple instances on other display ports, like :2, :3, and so on.
+
+vncserver -kill :1
