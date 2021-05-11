@@ -1,0 +1,135 @@
+Git offers a range of difftools pre-configured "out-of-the-box" (kdiff3, kompare, tkdiff, meld, xxdiff, emerge, vimdiff, gvimdiff, ecmerge, diffuse, opendiff, p4merge and araxis), and also allows you to specify your own. To use one of the pre-configured difftools (for example, "vimdiff"), you add the following lines to your ~/.gitconfig:
+
+[diff]
+    tool = vimdiff
+
+Now, you will be able to run "git difftool" and use your tool of choice.
+
+Specifying your own difftool, on the other hand, takes a little bit more work, see How do I view 'git diff' output with my preferred diff tool/ viewer?
+
+https://stackoverflow.com/questions/255202/how-do-i-view-git-diff-output-with-my-preferred-diff-tool-viewer
+
+-----------------------------------------------
+
+An additional way to do that (from the command line):
+
+git config --global diff.tool tkdiff
+git config --global merge.tool tkdiff
+git config --global --add difftool.prompt false
+
+The first two lines will set the difftool and mergetool to tkdiff- change that according to your preferences. The third line disables the annoying prompt so whenever you hit git difftool it will automatically launch the difftool.
+
+
+----------------------------------------------------
+Others have done a 99% answer on this, but there is one step left out. (My answer will be coming from OS X so you will have to change file paths accordingly.)
+
+You make these changes to your ~/.gitconfig:
+
+[diff]
+    tool = diffmerge
+[difftool "diffmerge"]
+    cmd = /Applications/Diffmerge.app/Contents/MacOS/diffmerge $LOCAL $REMOTE
+
+This will fix the diff tool. You can also fix this without editing the ~/.gitconfig directly by entering these commands from the terminal:
+
+git config --global diff.tool diffmerge
+git config --global difftool.diffmerge.cmd "/Applications/DiffMerge.appContents/MacOS/diffmerge \$LOCAL \$REMOTE"
+
+The 1% that everyone else failed to mention is when using this you can't just run git diff myfile.txt; you need to run git difftool myfile.txt.
+
+---------------------------------------------------------
+
+Here's the part of my ~/.gitconfig where I configure diff and merge tools. I like diffmerge by SourceGear. (I like it very very much, as a matter of fact).
+
+[merge]
+        tool = diffmerge
+[mergetool "diffmerge"]
+        cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+        trustExitCode = false
+[diff]
+        tool = diffmerge
+[difftool "diffmerge"]
+        cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+
+So, you see, you're defining a tool named "diffmerge" in the [difftool "diffmerge"] line. Then I'm setting the tool "diffmerge" as the default in the [diff]  tool = section.
+
+I obviously have the "diffmerge" command in my path, here. Otherwise I'd need to give a full path to the executable.
+
+---------------------------------------------------------------------
+
+Reproducing my answer from this thread which was more specific to setting beyond compare as diff tool for Git. All the details that I've shared are equally useful for any diff tool in general so sharing it here:
+
+The first command that we run is as below:
+
+git config --global diff.tool bc3
+
+The above command creates below entry in .gitconfig found in %userprofile% directory:
+
+[diff]
+    tool = bc3
+---------------------------------------------------------
+git difftool --tool-help
+
+vimdiff
+vimdiff2
+vimdiff3
+araxis
+bc
+bc3
+codecompare
+deltawalker
+diffmerge
+diffuse
+ecmerge
+emerge
+examdiff
+gvimdiff
+gvimdiff2
+gvimdiff3
+kdiff3
+kompare
+meld
+opendiff
+p4merge
+tkdiff
+winmerge
+xxdiff
+
+----------------------------------------------------------
+
+Linux
+*********
+[difftool "kdiff3"]
+    path = /usr/bin/kdiff3
+    trustExitCode = false
+[difftool]
+    prompt = false
+[diff]
+    tool = kdiff3
+[mergetool "kdiff3"]
+    path = /usr/bin/kdiff3
+    trustExitCode = false
+[mergetool]
+    keepBackup = false
+[merge]
+    tool = kdiff3
+-----------------------------------------------
+Windows
+***********************************************
+
+[difftool "kdiff3"]
+    path = C:/Progra~1/KDiff3/kdiff3.exe
+    trustExitCode = false
+[difftool]
+    prompt = false
+[diff]
+    tool = kdiff3
+[mergetool "kdiff3"]
+    path = C:/Progra~1/KDiff3/kdiff3.exe
+    trustExitCode = false
+[mergetool]
+    keepBackup = false
+[merge]
+    tool = kdiff3
+
+
