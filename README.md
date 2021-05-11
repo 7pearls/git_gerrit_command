@@ -130,5 +130,6 @@ Note : So to reiterate: "hard" will remove all changes while "keep" only removes
 
 When doing git reset to remove a commit the commit isn't really lost, there just is no reference pointing to it or any of it's children. You can still recover a commit which was "deleted" with git reset by finding it's SHA-1 key, for example with a command such as git reflog.
 
-
+--------------------------------------------------------------------------------------------------------------
+bcompare integration with
 
