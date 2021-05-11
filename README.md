@@ -1,7 +1,6 @@
 # git_gerrit_command
 
-Revert to previous changes
----------------------------
+Revert to previous changes:
 git reset --hard HEAD~1
 git push -f origin master (option -f ==> force)
 
