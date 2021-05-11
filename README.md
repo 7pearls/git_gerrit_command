@@ -131,4 +131,6 @@ When doing git reset to remove a commit the commit isn't really lost, there just
 
 --------------------------------------------------------------------------------------------------------------
 bcompare integration with
-
+---------------------------
+Serach bcompare in machine
+--> find / -name "bc*"
