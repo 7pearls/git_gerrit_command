@@ -133,9 +133,10 @@ When doing git reset to remove a commit the commit isn't really lost, there just
 bcompare integration with
 ---------------------------
 Serach bcompare in machine
---> find / -name "bc*"
+ find / -name "bc*"
 
 DEBIAN, UBUNTU:
+
 wget https://www.scootersoftware.com/bcompare-4.3.7.25118_amd64.deb
 sudo apt-get update
 sudo apt-get install gdebi-core
@@ -146,7 +147,7 @@ sudo apt-get remove bcompare
 
 REDHAT ENTERPRISE LINUX, FEDORA, CENTOS:
 
-->Graphical Install
+Graphical Install
 ->Double click on the .rpm package to install using the graphical package manager.
 ->wget https://www.scootersoftware.com/bcompare-4.3.7.25118.x86_64.rpm
 ->su
