@@ -198,6 +198,7 @@ Killing Xtightvnc process ID 17648
    mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
 4. Now create a new xstartup file and open it in your text editor:
    nano ~/.vnc/xstartup
+   --------------------
     #!/bin/bash
     xrdb $HOME/.Xresources
     startxfce4 &
