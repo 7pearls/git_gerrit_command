@@ -191,4 +191,15 @@ A local computer with a VNC client installed that supports VNC connections over 
 
 When VNC is first set up, it launches a default server instance on port 5901. This port is called a display port, and is referred to by VNC as :1. VNC can launch multiple instances on other display ports, like :2, :3, and so on.
 
-vncserver -kill :1
+1. vncserver -kill :1
+2. Output
+Killing Xtightvnc process ID 17648
+3. Before you modify the xstartup file, back up the original:
+   mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
+4. Now create a new xstartup file and open it in your text editor:
+   nano ~/.vnc/xstartup
+    #!/bin/bash
+    xrdb $HOME/.Xresources
+    startxfce4 &
+    
+5. 
